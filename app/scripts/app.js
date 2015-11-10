@@ -25,19 +25,33 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('/', {
+      .state('root', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .state('/about', {
+      .state('about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .state('login', {
+        templateUrl: 'views/login.html',
+        controller: 'AuthCtrl as authCtrl',
+        controllerAs: 'auth'
+      })
+      .state('register', {
+        templateUrl: 'views/register.html',
+        controller: 'AuthCtrl as authCtrl',
+        controllerAs: 'auth'
+      })
+      .state('main', {
+        url: '/',
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl as mainCtrl',
+        controllerAs: 'main'
       });
-      // .otherwise({
-      //   redirectTo: '/'
-      // });
   })
 
    .constant('FirebaseUrl', 'https://helpmedad.firebaseio.com/');

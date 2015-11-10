@@ -9,7 +9,7 @@ angular.module('helpmedadApp')
 
     authCtrl.login = function (){
       Auth.$authWithPassword(authCtrl.user).then(function (auth){
-        $state.go('home');
+        $state.go('root');
       }, function (error){
         authCtrl.error = error;
       });
