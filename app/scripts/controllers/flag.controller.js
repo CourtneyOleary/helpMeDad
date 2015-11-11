@@ -1,19 +1,27 @@
 angular.module('helpmedadApp')
-  .controller('FlagCtrl', function($scope, Users, Flags){
+  .controller('FlagCtrl', function($scope, $firebaseArray, Users, Flags, FirebaseUrl){
     var flagCtrl = this;
-    $scope.flags = Flags;
-    $scope.flag = '';
+    flagCtrl.flags = Flags;
+    flagCtrl.flag = '';
+    var ref = new Firebase(FirebaseUrl+'flags');
+    var flags = $firebaseArray(ref)
+    var authData = ref.getAuth();
 
   $scope.sendFlag = function (){
-    console.log($scope.flag);
-    // if(flagCtrl.flag.length > 0){
-    //   flagCtrl.flags.$add({
-    //     uid: profile.$id,
-    //     body: flagCtrl.flag,
-    //     timestamp: Firebase.ServerValue.TIMESTAMP
-    //   }).then(function (){
-    //     flagCtrl.flag = '';
-    //   });
-    // };
+    console.log("hello there mate ", flagCtrl.flags);
+    console.log("hello again flags, ", flagCtrl.flags);
+    console.log(authData);
+    if($scope.flag.length > 0){
+      console.log('hi mates :)');
+
+      flagCtrl.flags.$add({
+        uid: authData.uid,
+        body: $scope.flag,
+        timestamp: Firebase.ServerValue.TIMESTAMP,
+        coach: ""
+      }).then(function (){
+        flagCtrl.flag = '';
+      });
+    };
   };
 });

@@ -1,12 +1,11 @@
 <div class="jumbotron">
   <h1>Le Helps</h1>
 
-  <div class="helps" ng-repeat="message in FlagCtrl.flags">
+  <div class="helps" ng-repeat="flag in MainCtrl.flags">
     <img class="user-pic" ng-src="{{ MainCtrl.getGravatar(flag.uid) }}" />
     <div class="flag-info">
-      <div class="user-name">
-        {{ MainCtrl.getDisplayName(flag.uid) }}
-        <span class="timestamp">{{ flag.timestamp | date:'short' }}</span>
+      <div class="user-name" ng-model="flag">
+        <span class="timestamp">{{MainCtrl.Users(flag.uid.d)}} {{ flag.timestamp | date:'short' }}</span>
       </div>
       <div class="message">
         {{ flag.body }}
@@ -19,7 +18,7 @@
     <div class="input-group">
       <input type="text" class="form-control" ng-model="flag" placeholder="Type a help request...">
       <span class="input-group-btn">
-        <input class="btn btn-default" value="send" ng-click="sendFlag()"></input>
+        <input class="btn btn-default" type="button" value="send" ng-click="sendFlag()"></input>
       </span>
     </div>
 

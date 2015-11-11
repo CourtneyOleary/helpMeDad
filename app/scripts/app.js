@@ -50,7 +50,24 @@ angular
         url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as MainCtrl',
-        controllerAs: 'main',
+        controllerAs: 'main'
+      })
+      .state('profile', {
+        url: '/',
+        controller: 'ProfileCtrl as profileCtrl',
+        templateUrl: 'views/profile.html',
+        resolve: {
+          auth: function($state, Users, Auth){
+            return Auth.$requireAuth().catch(function(){
+              $state.go('root');
+            });
+          },
+          profile: function(Users, Auth){
+            return Auth.$requireAuth().then(function(auth){
+              return Users.getProfile(auth.uid).$loaded();
+            });
+          }
+        }
       })
       .state('logout', {
         url: '/',
