@@ -28,7 +28,7 @@ angular
       .state('root', {
         url: '/',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        controller: 'MainCtrl as MainCtrl',
         controllerAs: 'main'
       })
       .state('about', {
@@ -49,8 +49,14 @@ angular
       .state('main', {
         url: '/',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl as mainCtrl',
-        controllerAs: 'main'
+        controller: 'MainCtrl as MainCtrl',
+        controllerAs: 'main',
+      })
+      .state('logout', {
+        url: '/',
+        templateUrl: 'views/logout.html',
+        controller: 'MainCtrl as MainCtrl',
+        controllerAs: 'main',
       });
   })
 

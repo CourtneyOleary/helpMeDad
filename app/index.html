@@ -43,7 +43,7 @@
               <li><a ui-sref="about">About</a></li>
               <li><a ui-sref="login">Login</a></li>
               <li><a ui-sref="register">Register</a></li>
-              <li><a href="#" ng-click="authCtrl.logout()">logout</a></li>
+              <li><a ui-sref="logout" ng-click="MainCtrl.logout()">Logout</a></li>
             </ul>
           </div>
         </div>
@@ -89,6 +89,9 @@
         <script src="scripts/controllers/auth.controller.js"></script>
         <script src="scripts/services/auth.service.js"></script>
         <script src="scripts/services/users.service.js"></script>
+        <script src="scripts/controllers/flag.controller.js"></script>
+        <script src="scripts/services/flags.service.js"></script>
+
 
         <!-- endbuild -->
 </body>
