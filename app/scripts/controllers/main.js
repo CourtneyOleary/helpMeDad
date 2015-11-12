@@ -11,7 +11,6 @@ angular.module('helpmedadApp')
   .controller('MainCtrl', function($state, $firebaseArray, FirebaseUrl, Auth, Users, Flags){
     var MainCtrl = this;
     var refFlags = new Firebase(FirebaseUrl+'flags');
-    // var refUsers = new Firebase(FirebaseUrl+'Users');
     var flags = $firebaseArray(refFlags);
     // var users = $firebaseArray(refUsers);
 

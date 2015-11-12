@@ -7,12 +7,9 @@ angular.module('helpmedadApp')
     var flags = $firebaseArray(ref)
     var authData = ref.getAuth();
 
+
   $scope.sendFlag = function (){
-    console.log("hello there mate ", flagCtrl.flags);
-    console.log("hello again flags, ", flagCtrl.flags);
-    console.log(authData);
     if($scope.flag.length > 0){
-      console.log('hi mates :)');
 
       flagCtrl.flags.$add({
         uid: authData.uid,
