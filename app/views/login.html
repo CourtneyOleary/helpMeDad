@@ -4,8 +4,8 @@
     <h1><a ui-sref="home"></a> Log In</h1>
   </div>
 
-  <div ng-show="authCtrl.error">
-    <span>{{ authCtrl.error.message }} Good one dingis.</span>
+  <div ng-controller="AuthCtrl" ng-show="authCtrl.error">
+    <span> {{ $scope }} Good one dingis.</span>
   </div>
 
   <form ng-submit="authCtrl.login()">

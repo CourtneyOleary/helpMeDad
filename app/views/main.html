@@ -5,7 +5,7 @@
     <img class="user-pic" ng-src="{{ MainCtrl.getGravatar(flag.uid) }}" />
     <div class="flag-info">
       <div class="user-name" ng-model="flag">
-        <span class="timestamp">{{MainCtrl.Users(flag.uid.d)}} {{ flag.timestamp | date:'short' }}</span>
+        <span class="timestamp">{{ MainCtrl.getDisplayName(flag.uid) }} {{ flag.timestamp | date:'short' }}</span>
       </div>
       <div class="message">
         {{ flag.body }}

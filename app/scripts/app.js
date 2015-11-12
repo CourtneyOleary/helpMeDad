@@ -31,11 +31,6 @@ angular
         controller: 'MainCtrl as MainCtrl',
         controllerAs: 'main'
       })
-      .state('about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
       .state('login', {
         templateUrl: 'views/login.html',
         controller: 'AuthCtrl as authCtrl',
